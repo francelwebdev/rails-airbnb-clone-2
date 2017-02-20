@@ -7,7 +7,7 @@ class CreateTreehouses < ActiveRecord::Migration[5.0]
       t.integer :bed_count
       t.string :location
       t.string :tree_type
-      t.references :owner, foreign_key: true
+      t.references :owner
       t.string :description
       t.float :rate
 
