@@ -22,8 +22,10 @@
 	</div>
 
 	<div>
-		<% treehouse.photos.each do |photo| %>
-			<%= cl_image_tag photo.path %>
+		<%= link_to treehouse_path(treehouse) do %>
+			<% treehouse.photos.each do |photo| %>
+				<%= cl_image_tag photo.path %>
+			<% end %>
 		<% end %>
 	</div>
 <% end %>
