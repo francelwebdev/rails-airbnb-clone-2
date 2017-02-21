@@ -20,5 +20,12 @@
 	<div>
 		<%= treehouse.rate %>
 	</div>
+
+	<div>
+		<% treehouse.photos.each do |photo| %>
+			<%= cl_image_tag photo.path %>
+		<% end %>
+	</div>
 <% end %>
 
+<%= link_to "List your treehouse", new_treehouse_path %>

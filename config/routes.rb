@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :treehouses, only: [:index, :show]
+  resources :treehouses, only: [:index, :show, :new, :create], :path => "/"
 
   devise_for :users
   root to: 'treehouses#index'
