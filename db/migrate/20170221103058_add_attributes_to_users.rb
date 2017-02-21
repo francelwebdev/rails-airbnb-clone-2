@@ -1,0 +1,10 @@
+class AddAttributesToUsers < ActiveRecord::Migration[5.0]
+  def change
+    add_column :users, :first_name, :string
+    add_column :users, :last_name, :string
+    add_column :users, :phone_number, :string
+    add_column :users, :birth_date, :string
+    add_column :users, :contact, :boolean, :default => true
+    add_column :users, :terms_of_service, :boolean, :default => false
+  end
+end
