@@ -3,5 +3,11 @@ class Treehouse < ApplicationRecord
   has_many :bookings
   has_many :amenities
   has_many :spaces
+
+  validates :name, :category, :capacity, :bed_count, :location, :tree_type, :description, :rate, presence: true
+
+  validates :name, uniqueness: true
+
+
 end
 
