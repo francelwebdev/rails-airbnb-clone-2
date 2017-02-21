@@ -1,0 +1,13 @@
+
+<%= simple_form_for @treehouse do |f| %>
+<%= f.input :name %>
+<%= f.input :category %>	
+<%= f.input :capacity %>	
+<%= f.input :location %>	 
+<%= f.input :bed_count %>
+<%= f.input :tree_type %>
+<%= f.input :rate %>
+<%= f.input :description %>
+<%= f.input :photos, as: :attachinary %>
+<%= f.button :submit, class: "btn btn-primary", value: "List My Treehouse" %>
+<% end %>

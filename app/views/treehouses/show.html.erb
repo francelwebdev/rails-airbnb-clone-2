@@ -1,7 +1,17 @@
-<h1>Treehouses#show</h1>
-<p>Find me in app/views/treehouses/show.html.erb</p>
+<h1><%= @treehouse.name %></h1>
+
+
+<p><%= link_to 'Edit Treehouse', edit_treehouse_path %></p>
+						<p><%= link_to 'Delete Treehouse', treehouse_path, method: :delete %></p>
+
 
 <% @treehouse.photos.each do |photo| %>
   <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
 <% end %>
+
+
+<%= link_to "back to homepage", treehouses_path %>
+
+
+
 
