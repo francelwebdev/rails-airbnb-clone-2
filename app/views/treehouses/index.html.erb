@@ -1,2 +1,16 @@
 <h1>Treehouses#index</h1>
 <p>Find me in app/views/treehouses/index.html.erb</p>
+<% @treehouses.each do |treehouse| %>
+	<div>
+		<%= treehouse.name %>
+	</div>
+	<div>
+		<%= treehouse.category %>
+	</div>
+	<div>
+		<%= treehouse.location %>
+	</div>
+	<div>
+		<%= treehouse.rate %>
+	</div>
+<% end %>
