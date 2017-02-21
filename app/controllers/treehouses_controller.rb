@@ -5,4 +5,8 @@ class TreehousesController < ApplicationController
 
   def show
   end
+
+  def product_params
+  params.require(:treehouse).permit(:name, :description, photos: [])
+  end
 end
