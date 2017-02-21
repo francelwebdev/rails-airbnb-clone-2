@@ -4,3 +4,19 @@
 
 <%= cl_image_tag("http://res.cloudinary.com/dkikokgwa/image/upload/v1487679786/tdsvfwidzrrvoleccaat.jpg",
       width: 400, height: 300, crop: :fill) %>
+
+<% @treehouses.each do |treehouse| %>
+	<div>
+		<%= treehouse.name %>
+	</div>
+	<div>
+		<%= treehouse.category %>
+	</div>
+	<div>
+		<%= treehouse.location %>
+	</div>
+	<div>
+		<%= treehouse.rate %>
+	</div>
+<% end %>
+
