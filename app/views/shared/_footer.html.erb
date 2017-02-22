@@ -16,10 +16,11 @@
 				<div class="footer-col">
 					<h3>Navigate</h3>
 					<ul class="menu">
-						<li><a href="#">Home</a></li>
+						<li><%= link_to "Home", treehouses_path %></li>
 						<li><a href="#">Search</a></li>
-						<li><a href="#">List A Treehouse</a></li>
-						<li><a href="#">Another action</a></li>
+						<li><%= link_to "List A Treehouse", new_treehouse_path %></li>
+						<li><%= link_to "Sign up", new_user_registration_path %></li>
+						<li><%= link_to "Login", new_user_session_path %></li>
 					</ul>
 				</div>			
 			</div>

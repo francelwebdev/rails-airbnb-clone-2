@@ -1,4 +1,4 @@
-<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%),  image-url("treehouse_banner.png");">	
+<div class="show-banner" style="background-image: url(<%= cl_image_path @treehouse.photos.first.path %>);">	
 </div>
 <!-- <div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%),  url("<%= @treehouse.photos.first.path %>");">	
 </div> -->
@@ -9,11 +9,12 @@
 		<div class="col-xs-12 col-sm-4">
 			<div class="booking-wrapper">
 				<div class="booking-col">
-					<div class="booking-col-highlight"><strong>$100 CAD</strong>   Per Night</div>
-					<div class="booking-col-content text-center">
+					<div class="booking-col-highlight"><strong>$<%= number_with_precision(@treehouse.rate, precision: 2) %></strong>   Per Night</div>
+					<div class="booking-col-content">
 						<p>
 							<%= render "bookings/form" %>
 						</p>
+						<p class="small text-center">You won't be charged yet.</p>
 						<!-- <a class="btn btn-light" href="">Book Now</a> -->
 					</div>
 					
@@ -24,19 +25,74 @@
 
 			<div class="show-content">
 				<h1><%= @treehouse.name %></h1>
-				<h2><%= @treehouse.location %></h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<h2><%= @treehouse.address %></h2>
+				
+					<div class="row top-buffer">
+						<div class="col-xs-12 col-sm-3">
+							<div class="icon text-center">
+								<i class="fa fa-home" aria-hidden="true"></i>
+							</div>
+							<div class="attribute text-center">
+								<%= @treehouse.category %>								
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<div class="icon text-center">
+								<i class="fa fa-user" aria-hidden="true"></i>
+							</div>
+							<div class="attribute text-center">
+								<%= @treehouse.capacity %> guests							
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<div class="icon text-center">
+								<i class="fa fa-bed" aria-hidden="true"></i>
+							</div>
+							<div class="attribute text-center">
+								<%= @treehouse.bed_count %> beds						
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-3">
+							<div class="icon text-center">
+								<i class="fa fa-tree" aria-hidden="true"></i>
+							</div>
+							<div class="attribute text-center">
+								<%= @treehouse.tree_type %>								
+							</div>
+						</div>
 
-				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-<!-- 				
-				<% @treehouse.photos.each do |photo| %>
+					
+
+					</div> <!-- end row -->
+			
+				<h3>About this treehouse</h3>
+
+				<p><%= @treehouse.description %></p>
+				<p><strong>Host's name</strong>: <%= @treehouse.owner.first_name %> <%= @treehouse.owner.last_name %></p>
+
+				<h3>Amenities</h3>
+				<p><strong>*** Need to add amenities ***</strong></p>
+
+<!-- 				<% @treehouse.photos.each do |photo| %>
 				  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-				<% end %> -->
-
-				<p><%= link_to 'Edit Treehouse', edit_treehouse_path %></p>
-				<p><%= link_to 'Delete Treehouse', treehouse_path, method: :delete %></p>
+				<% end %> 
+ -->
+				<h3>Treehouse Owner Actions</h3>
+				<ul>
+					<li><%= link_to 'Edit Treehouse', edit_treehouse_path %></li>
+					<li><%= link_to 'Delete Treehouse', treehouse_path, method: :delete %></li>
+				</ul>
 			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			
+			<div id="map" class="img-responsive map" style="width: 100%; height: 350px; margin-top: 100px; margin-bottom: 30px;"></div>
 
 		</div>
 	</div>
@@ -52,8 +108,6 @@
   <% end %>
 <% end %>
 
-
-<div id="map" class="img-responsive map" style="width: 100%; height: 350px; margin-top: 100px; margin-bottom: 30px;"></div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
