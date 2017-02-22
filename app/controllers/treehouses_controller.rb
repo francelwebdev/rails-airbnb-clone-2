@@ -23,7 +23,7 @@ class TreehousesController < ApplicationController
 
 
   def edit
-  	@treehouse = Treehouse.find(params[:id])
+    @treehouse = Treehouse.find(params[:id])
   end
 
   def update
