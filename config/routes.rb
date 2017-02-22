@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :bookings, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :bookings, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  	member do
+  		post 'confirm'
+  	end
+  end
   
   root to: 'treehouses#index'
   

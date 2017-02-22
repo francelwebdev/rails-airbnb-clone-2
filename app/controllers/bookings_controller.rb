@@ -8,21 +8,21 @@ class BookingsController < ApplicationController
   end
 
   def new
- 
     @booking = Booking.new
   end
 
-  def create
+  def confirm
     @booking = Booking.new(booking_params)
-    if @booking.state == true 
-      if @booking.save
-        redirect_to bookings_path
-      else
-        render :new
-      end
+  end
+
+  def create
+    @booking = Booking.new(booking_params)    
+    if @booking.save
+      redirect_to bookings_path
     else
-      @booking.destroy
+      render :new
     end
+  
   end
 
   def edit

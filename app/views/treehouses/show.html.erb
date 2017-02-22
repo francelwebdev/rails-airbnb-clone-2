@@ -12,7 +12,7 @@
 						<p>
 							<%= render "bookings/form" %>
 						</p>
-						<a class="btn btn-light" href="">Book Now</a>
+						<!-- <a class="btn btn-light" href="">Book Now</a> -->
 					</div>
 					
 				</div>
@@ -43,5 +43,10 @@
 
 		<%= image_tag 'map.png', class: "img-responsive map" %>
 
-
-
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @treehouse_coordinates.to_json %>;
+    });
+  <% end %>
+<% end %>
