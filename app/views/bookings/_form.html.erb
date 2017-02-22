@@ -1,0 +1,5 @@
+<%= simple_form_for @booking, path: 'new_booking_path' do |f| %>
+<%= f.input :start_date, label: "Check In",placeholder: "8/03/2017" %>
+<%= f.input :end_date, label: "Check Out",placeholder: "8/15/2017" %>	
+<%= f.input :guest_count, :collection => (1...16), selected: 1 %>	
+<% end %>
