@@ -1,13 +1,13 @@
 
 <%= simple_form_for @treehouse do |f| %>
-<%= f.input :name %>
-<%= f.input :category %>	
-<%= f.input :capacity %>	
-<%= f.input :location %>	 
-<%= f.input :bed_count %>
-<%= f.input :tree_type %>
-<%= f.input :rate %>
-<%= f.input :description %>
+<%= f.input :name, placeholder: "Up In The Air Treehouse" %>
+<%= f.input :category, :collection => ["Entire Place", "Private Room", "Shared Room"], selected: 1 %>	
+<%= f.input :capacity, placeholder: "4 people" %>	
+<%= f.input :location, placeholder: "Woodstock, NY" %>	 
+<%= f.input :bed_count, placeholder: "4 beds" %>
+<%= f.input :tree_type, placeholder: "Oak tree" %>
+<%= f.input :rate, placeholder: "$100/night" %>
+<%= f.input :description, placeholder: "Come rock out in our green hippy paradise.", :as => :text  %>
 <%= f.input :photos, as: :attachinary %>
-<%= f.button :submit, class: "btn btn-primary", value: "List My Treehouse" %>
+<%= f.button :submit, class: "btn btn-primary", value: "Submit" %>
 <% end %>
