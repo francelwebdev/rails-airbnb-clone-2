@@ -1,5 +1,7 @@
-<div class="show-banner">	
+<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%),  image-url("treehouse_banner.png");">	
 </div>
+<!-- <div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%),  url("<%= @treehouse.photos.first.path %>");">	
+</div> -->
 
 	
 <div class="container">
@@ -41,12 +43,32 @@
 </div>
 
 
-		<%= image_tag 'map.png', class: "img-responsive map" %>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
       var coord = <%= raw @treehouse_coordinates.to_json %>;
+    });
+  <% end %>
+<% end %>
+
+
+<div id="map" class="img-responsive map" style="width: 100%; height: 350px; margin-top: 100px; margin-bottom: 30px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
     });
   <% end %>
 <% end %>

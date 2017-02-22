@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
   def index
-      @bookings = Booking.all
+    @rent_bookings = Booking.where(renter_id: current_user.id)
+    @own_bookings = Booking.where(owner_id: current_user.id)
+
   end
 
   def show
@@ -13,6 +15,8 @@ class BookingsController < ApplicationController
 
   def confirm
     @booking = Booking.new(booking_params)
+    @booking.renter = current_user
+    
   end
 
   def create
@@ -32,6 +36,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private
