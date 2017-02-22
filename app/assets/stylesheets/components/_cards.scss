@@ -1,0 +1,36 @@
+.card {
+	margin-top: 20px;
+}
+
+.card-description {
+  margin-top: 12px;
+  color: #9B9B9B;
+  font-weight: 100;
+  opacity: 1;
+}
+
+.card-description a {
+	text-decoration: none;
+	color: #9B9B9B;
+}
+
+.card-description a:hover {
+	text-decoration: none;
+	color: $dark-green;
+	border-bottom: 1px solid $dark-green;
+}
+
+
+
+ul.stars {
+	list-style-type: none;
+	padding-left:0px;
+	margin-top: 1px;
+}
+
+ul.stars li i{
+	color: #9B9B9B;
+	font-size: 14px;
+}
+
+

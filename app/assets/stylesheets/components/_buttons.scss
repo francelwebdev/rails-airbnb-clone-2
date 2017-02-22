@@ -1,0 +1,57 @@
+.btn-big-search {
+  padding: 13px 43px;
+  border-radius: 5px;
+  line-height: 36px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 100;
+  display: inline-block;
+  background-color: $light-green;
+  color: #fff;
+  transition: opacity 0.3s ease;
+  opacity: 0.9;
+  border: 0;
+}
+
+.btn-big-search:hover {
+  opacity: 1;
+}
+
+
+
+.btn {
+  padding: 8px 30px;
+  border-radius: 5px;
+  line-height: 36px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 100;
+  display: inline-block;
+  transition: all 0.3s ease;
+  opacity: 1;
+  border: 0;
+}
+
+a.btn-dark {
+  background-color: $dark-green;
+  color: #fff;
+}
+
+
+a.btn-light {
+  background-color: $light-green;
+  color: #fff;
+}
+
+.btn-light:hover {
+  background-color: $dark-green;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background-color: $light-green;
+  color: #fff;
+
+}
+
+

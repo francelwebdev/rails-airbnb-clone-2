@@ -2,3 +2,39 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+h2.recent-treehouses-header {
+	color: $dark-green;
+	font-weight: 100;
+	margin-top: 80px;
+	margin-bottom: 20px;
+}
+
+
+.see-more {
+  margin-bottom: 90px;
+  margin-top: 20px;
+}
+
+.share-treehouse-home {
+	color: #4A4A4A;
+}
+
+h2.share-home-h2 {
+	color: $light-green;
+	font-weight: 700;
+	font-size: 52px;
+	margin-bottom: 5px;
+}
+
+h3.share-home-h3 {
+	color: $dark-green;
+	font-weight: 100;
+	font-size: 31px;
+	margin-top: 0;
+}
+
+.share-treehouse-home p {
+  font-size: 19px;
+  margin-top: 20px;
+}

@@ -1,33 +1,49 @@
-<h1>Treehouses#index</h1>
-<p>Find me in app/views/treehouses/index.html.erb</p>
-
-
-<%= cl_image_tag("http://res.cloudinary.com/dkikokgwa/image/upload/v1487679786/tdsvfwidzrrvoleccaat.jpg",
-      width: 400, height: 300, crop: :fill) %>
-<%= cl_image_tag("http://res.cloudinary.com/dkikokgwa/image/upload/v1487323731/sample.jpg",
-      width: 400, height: 300, crop: :fill) %>
-
-<% @treehouses.each do |treehouse| %>
-	<div>
-		<%= treehouse.name %>
-	</div>
-	<div>
-		<%= treehouse.category %>
-	</div>
-	<div>
-		<%= treehouse.location %>
-	</div>
-	<div>
-		<%= treehouse.rate %>
-	</div>
-
-	<div>
-		<%= link_to treehouse_path(treehouse) do %>
-			<% treehouse.photos.each do |photo| %>
-				<%= cl_image_tag photo.path %>
-			<% end %>
-		<% end %>
-	</div>
+<% content_for(:title_tag) do %>
+  Home - TreeHousing
 <% end %>
 
-<%= link_to "List your treehouse", new_treehouse_path %>
+
+		<%= render 'pages/banner' %>
+
+
+<div class="home">
+<div class="container">
+	<div class="row">
+
+
+
+		<!-- Recently added treehouses -->
+
+		<div class="col-xs-12">
+			<h2 class="text-center recent-treehouses-header">Recently added treehouses</h2>
+		</div> <!-- end col -->
+		<%= render 'treehouse_card' %>
+		<div class="col-xs-12 text-center">
+			<div class="see-more">
+<!-- 				<%= link_to "See more treehouses", treehouses_path, class: "btn btn-light" %>
+ -->			</div>
+		</div> <!-- end col -->
+
+
+
+	</div> <!-- end row -->
+
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-5">
+			<div class="share-treehouse-home">
+				<h2 class="share-home-h2">List your treehouse</h2>
+				<h3 class="share-home-h3">Earn money by sharing your space.</h3>
+				<p>Join our community and share the magic of your treehouse with the world.</p>
+				<%= link_to "Create a listing", new_treehouse_path, class:"btn btn-dark" %>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-7">
+			<%= image_tag 'inside_treehouse.jpg', class: 'img-responsive' %>
+		</div>
+	</div>
+</div> <!-- end container -->
+
+
+</div><!-- home -->
+
