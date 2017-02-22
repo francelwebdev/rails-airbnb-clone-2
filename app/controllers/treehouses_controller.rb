@@ -1,11 +1,21 @@
 class TreehousesController < ApplicationController
   def index
   	@treehouses = Treehouse.all
+    @mapped_treehouses = Treehouse.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@mapped_treehouses) do |treehouse, marker|
+      marker.lat treehouse.latitude
+      marker.lng treehouse.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def show
   	@treehouse = Treehouse.find(params[:id])
     @booking = Booking.new
+    # @alert_message = "You are viewing #{@treehouse.name}"
+    @treehouse_coordinates = { lat: @treehouse.latitude, lng: @treehouse.longitude }
+
   end
 
   def new
@@ -44,6 +54,6 @@ class TreehousesController < ApplicationController
   end
 
   def treehouse_params
-  params.require(:treehouse).permit(:name, :description, :category, :capacity, :bed_count, :location, :tree_type, :rate, photos: [])
+  params.require(:treehouse).permit(:name, :description, :category, :capacity, :bed_count, :address, :tree_type, :rate, photos: [])
   end
 end

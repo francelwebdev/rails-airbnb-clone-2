@@ -8,7 +8,8 @@ class Treehouse < ApplicationRecord
 
   # validates :name, :category, :capacity, :bed_count, :location, :tree_type, :description, :rate, presence: true
   # validates :name, uniqueness: true
-
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
 end
 
