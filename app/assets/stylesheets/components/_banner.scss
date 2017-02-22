@@ -36,6 +36,10 @@
 
 .show-banner {
 	height: 500px;
+
 	background-image: image-url("treehouse-show.png");
 	background-size: cover;
+	background-repeat:no-repeat;
+	// background-size:contain;
+	background-position:center
 }

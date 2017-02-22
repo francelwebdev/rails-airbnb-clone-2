@@ -3,6 +3,7 @@
 <%= f.input :end_date, label: "Check Out",placeholder: "8/15/2017" %>	
 <%= f.input :guest_count, :collection => (1...16), selected: 1 %>	
 <%= f.hidden_field :treehouse_id, value: @treehouse.id %>	
-
-<%= f.submit class: 'btn btn-light', value: "Book now" %>	
+<div class="text-center">
+	<%= f.submit class: 'btn btn-light full-width', value: "Book now" %>	
+</div>
 <% end %>
