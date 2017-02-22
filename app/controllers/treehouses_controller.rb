@@ -27,7 +27,8 @@ class TreehousesController < ApplicationController
   end
 
   def update
-  	@treehouse = Treehouse.new(treehouse_params)
+  	@treehouse = Treehouse.find(params[:id])
+    @treehouse.update(treehouse_params)
   	if @treehouse.save
   		redirect_to treehouse_path(@treehouse)
   	else
