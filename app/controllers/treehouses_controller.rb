@@ -15,7 +15,12 @@ class TreehousesController < ApplicationController
   end
 
   def search
-    @treehouses = Treehouse.all
+    if params["treehouse"]["address"]
+      @treehouses = Treehouse.near(params["treehouse"]["address"], 50).limit(1)
+    else
+      @treehouses = Treehouse.all.limit(20)
+    end
+    # @treehouses = Treehouse.all
     @mapped_treehouses = Treehouse.where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@mapped_treehouses) do |treehouse, marker|
