@@ -16,17 +16,25 @@ class TreehousesController < ApplicationController
 
   def search
     if params["treehouse"]["address"]
-      @treehouses = Treehouse.near(params["treehouse"]["address"], 50).limit(1)
+      @treehouses = Treehouse.near(params["treehouse"]["address"], 50)
+  
     else
-      @treehouses = Treehouse.all.limit(20)
+      @treehouses = Treehouse.near(params["treehouse"]["address"], 50)
     end
+    @treehouses.limit(20)
     # @treehouses = Treehouse.all
-    @mapped_treehouses = Treehouse.where.not(latitude: nil, longitude: nil)
+    @mapped_treehouses = @treehouses.select { |t| !t.latitude.nil? && !t.longitude.nil? }
 
     @hash = Gmaps4rails.build_markers(@mapped_treehouses) do |treehouse, marker|
       marker.lat treehouse.latitude
       marker.lng treehouse.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      marker.infowindow treehouse.name
+
+       # {
+       #        "lat": <%= @treehouse.latitude %>,
+       #        "lng": <%= @treehouse.longitude %>,
+       #        "infowindow": "<p><%= @treehouse.name %></p><img src='<%= cl_image_path @treehouse.photos.first.path %>' height='200'></p>"
+       #      }
     end
   end
 
