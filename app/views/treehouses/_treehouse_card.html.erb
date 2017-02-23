@@ -6,7 +6,7 @@
 			<%= link_to treehouse_path(treehouse) do %>
 				<% if treehouse.photos? %>
 			<% treehouse.photos.each do |photo| %>
-				<%= cl_image_tag photo.path, class: "img-responsive" %>
+				<%= cl_image_tag photo.path, class: "img-responsive", width: 350, height: 164, crop: :fill %>
 			<% end %>
 				<% end %>
 			<% end %>

@@ -2,7 +2,7 @@
 	<form action="/search" class="form-inline">
 		<div class="form-group where-group">
 			<label for="where">Where</label>
-			<input type="text" id="where" placeholder="Destination, country, address">
+			<input type="text" id="treehouse_address" placeholder="Destination, country, address" style="color:#000;">
 		</div>
 		<div class="form-group home-submit-button">
 			<button type="submit" class="btn-big-search">
@@ -11,3 +11,16 @@
 		</div>
 	</form>
 </div>
+<!-- 
+
+ <%= form_tag(search_path, method: "get") do %>
+  <%= label_tag(:q, "where:") %>
+  <%= text_field_tag(:address, '', id: 'treehouse_address') %>
+  <%= submit_tag("Search") %>
+<% end %>
+ -->
+
+ 
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
+<% end %>
