@@ -30,6 +30,8 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+gem 'country_select'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
