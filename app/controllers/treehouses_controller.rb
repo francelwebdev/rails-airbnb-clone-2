@@ -1,4 +1,8 @@
 class TreehousesController < ApplicationController
+
+  layout "search", only: [ :search ]
+
+
   def index
   	@treehouses = Treehouse.all
     @mapped_treehouses = Treehouse.where.not(latitude: nil, longitude: nil)
@@ -9,6 +13,18 @@ class TreehousesController < ApplicationController
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
+
+  def search
+    @treehouses = Treehouse.all
+    @mapped_treehouses = Treehouse.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@mapped_treehouses) do |treehouse, marker|
+      marker.lat treehouse.latitude
+      marker.lng treehouse.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+  end
+
 
   def show
   	@treehouse = Treehouse.find(params[:id])
@@ -52,6 +68,7 @@ class TreehousesController < ApplicationController
   	@treehouse.destroy
   	redirect_to treehouses_path
   end
+
 
   def treehouse_params
   params.require(:treehouse).permit(:name, :description, :category, :capacity, :bed_count, :address, :tree_type, :rate, photos: [])

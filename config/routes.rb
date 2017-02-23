@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
 
 
-
+  get '/search', to: "treehouses#search"
   resources :treehouses, only: [:index, :show, :new, :create, :edit, :update, :destroy], :path => "/"
+
 
 
   mount Attachinary::Engine => "/attachinary"
