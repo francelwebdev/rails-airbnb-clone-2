@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var treehouse_address = $('#treehouse_address').get(0);
+  var treehouse_address = $('#treehouse_address_search').get(0);
 
   if (treehouse_address) {
     var autocomplete = new google.maps.places.Autocomplete(treehouse_address, { types: ['geocode'] });
@@ -15,14 +15,10 @@ $(document).ready(function() {
 function onPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
-  console.log(components);
+  var array = [components.address, components.city, components.zip_code, components.country_code]
+  array = array.filter(function(n){ return n != undefined })
+  $('#treehouse_address_search').trigger('blur').val(array.join(", "));
 
-  $('#treehouse_address').trigger('blur').val(components.address);
-  $('#treehouse_zip_code').val(components.zip_code);
-  $('#treehouse_city').val(components.city);
-  if (components.country_code) {
-    $('#treehouse_country').val(components.country_code);
-  }
 }
 
 function getAddressComponents(place) {
@@ -35,6 +31,7 @@ function getAddressComponents(place) {
   var zip_code = null;
   var city = null;
   var country_code = null;
+  console.log(place.address_components)
   for (var i in place.address_components) {
     var component = place.address_components[i];
     for (var j in component.types) {
