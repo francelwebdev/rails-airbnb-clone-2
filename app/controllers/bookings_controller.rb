@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @rent_bookings = Booking.where(renter_id: current_user.id)
-    @own_bookings = Booking.where(owner_id: current_user.id)
+    # @own_bookings = Treehouse.where(owner_id: current_user.id)
 
   end
 
