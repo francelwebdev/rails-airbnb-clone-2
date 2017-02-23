@@ -13,5 +13,24 @@
 
 			
 		</div>
+		<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+			<h1>Your owner bookings</h1>
+				<% @own_bookings.each do |treehouse| %>
+
+					<%	treehouse.bookings.each do |booking| %>
+						<h3>NAME: <%= booking.treehouse.name%></h3>
+						<h3>START: <%= booking.start_date %></h3>
+						<h3>END: <%= booking.end_date %></h3>
+						<h3>RENTER: <%= booking.renter.email %></h3>
+
+						<p><%= link_to "Cancel booking", booking_path(booking), method: :delete %></p>
+					<% end %>
+				
+					<h3>All i own: <%= treehouse.name %></h3>
+						
+				<% end %>
+
+			
+		</div>
 	</div>
 </div>
