@@ -7,6 +7,9 @@
 		</div>
 		<div class="col-xs-12 col-sm-7">
       <%= render 'shared/search'%>
+      <% if @empty_results %>
+        <p class="query_error">Your query returned no results.  Below is a listing of all treehouses.</p>
+      <% end %>
 			<%= render 'treehouse_card_search' %>
 		</div>
 
