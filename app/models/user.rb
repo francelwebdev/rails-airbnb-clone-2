@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
-  has_many :bookings, dependent: :destroy
-  has_many :treehouses
+  has_many :bookings, dependent: :destroy, :foreign_key => 'renter_id'
+  has_many :treehouses, :foreign_key => 'owner_id'
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
