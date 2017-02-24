@@ -108,8 +108,16 @@ a:hover, a:focus {
   background-color: $light-green;
   border-color: #ccc;
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: $light-green;
+  border-color: #ccc;
+}
+
+
 /* line 11, /usr/local/Cellar/rbenv/1.1.0/versions/2.3.3/lib/ruby/gems/2.3.0/gems/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/mixins/_buttons.scss */
-.btn-default:focus, .btn-default.focus {
+.btn-default:focus, .btn-default.focus, .btn-default.active {
   color: #333;
   background-color: #e6e6e6;
   border-color: #8c8c8c;
