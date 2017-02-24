@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   if (treehouse_address) {
     var autocomplete = new google.maps.places.Autocomplete(treehouse_address, { types: ['geocode'] });
-    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged0);
     google.maps.event.addDomListener(treehouse_address, 'keydown', function(e) {
       if (e.keyCode == 13) {
         e.preventDefault(); // Do not submit the form on Enter.
@@ -12,7 +12,7 @@ $(document).ready(function() {
   }
 });
 
-function onPlaceChanged() {
+function onPlaceChanged0() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
   var array = [components.address, components.city, components.zip_code, components.country_code]

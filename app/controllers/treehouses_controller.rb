@@ -19,7 +19,7 @@ class TreehousesController < ApplicationController
       @treehouses = Treehouse.near(params["treehouse"]["address"], 50)
   
     else
-      @treehouses = Treehouse.near(params["treehouse"]["address"], 50)
+      @treehouses = Treehouse.all
     end
     @treehouses.limit(20)
     # @treehouses = Treehouse.all
@@ -29,6 +29,8 @@ class TreehousesController < ApplicationController
       marker.lat treehouse.latitude
       marker.lng treehouse.longitude
       marker.infowindow treehouse.name
+
+      
 
        # {
        #        "lat": <%= @treehouse.latitude %>,
