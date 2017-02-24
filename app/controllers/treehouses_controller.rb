@@ -15,12 +15,19 @@ class TreehousesController < ApplicationController
   end
 
   def search
-    if params["treehouse"]["address"]
-      @treehouses = Treehouse.near(params["treehouse"]["address"], 50)
-  
-    else
+    @address = params["treehouse"]["address"]
+
+    # if there's an address...
+    @treehouses = @address ? Treehouse.near(@address, 50) : Treehouse.all
+    # @treehouses = Treehouse.near(@address, 50) if @address
+
+    # if the address results return 0 results
+    if @treehouses.length == 0
       @treehouses = Treehouse.all
+      @empty_results = true
     end
+    # @treehouses = @treehouses.length == 0 ? Treehouse.all : @treehouses 
+
     @treehouses.limit(20)
     # @treehouses = Treehouse.all
     @mapped_treehouses = @treehouses.select { |t| !t.latitude.nil? && !t.longitude.nil? }
@@ -28,7 +35,9 @@ class TreehousesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@mapped_treehouses) do |treehouse, marker|
       marker.lat treehouse.latitude
       marker.lng treehouse.longitude
-      marker.infowindow treehouse.name
+      # marker.infowindow treehouse.name
+      marker.infowindow render_to_string(partial: "/treehouses/map_box", locals: { treehouse: treehouse })
+
 
       
 
@@ -86,6 +95,6 @@ class TreehousesController < ApplicationController
 
 
   def treehouse_params
-  params.require(:treehouse).permit(:name, :description, :category, :capacity, :bed_count, :address, :tree_type, :rate, photos: [])
+  params.require(:treehouse).permit(:name, :description, :category, :capacity, :bed_count, :address, :zip_code, :city, :country, :tree_type, :rate, photos: [])
   end
 end

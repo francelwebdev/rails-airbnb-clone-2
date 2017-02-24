@@ -110,12 +110,14 @@
             {
               "lat": <%= @treehouse.latitude %>,
               "lng": <%= @treehouse.longitude %>,
-              "infowindow": "<p><%= @treehouse.name %></p><img src='<%= cl_image_path @treehouse.photos.first.path %>' height='200'></p>"
+              "infowindow": "<%= j render 'map_box',treehouse: @treehouse %>"
+
             }
            
           ]);
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
+          handler.getMap().setZoom(14);
         });
       })
   <% end %>

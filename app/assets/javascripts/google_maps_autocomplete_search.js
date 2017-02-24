@@ -17,7 +17,7 @@ function onPlaceChanged0() {
   var components = getAddressComponents(place);
   var array = [components.address, components.city, components.zip_code, components.country_code]
   array = array.filter(function(n){ return n != undefined })
-  $('#treehouse_address_search').trigger('blur').val(array.join(", "));
+  // $('#treehouse_address_search').trigger('blur').val(array.join(", "));
 
 }
 
