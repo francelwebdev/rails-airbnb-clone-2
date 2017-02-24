@@ -1,0 +1,27 @@
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-xs-12 text-center margin40">
+			<h2 class="h2-reg">My Treehouse Listings</h2>
+		</div>
+	</div>
+
+<% @owned_trees.each do |treehouse| %>
+
+	<div class="row margin40 padded40 border-top">
+		<div class="col-xs-6">
+			<%= link_to treehouse_path(treehouse) do %>
+				<%= cl_image_tag treehouse.photos.first.path, class: "img-responsive", width: 500, height: 250, crop: :fill %> 
+			<% end %>
+		</div>
+		<div class="col-xs-6">
+			<h3 class="margin0"><%= treehouse.name %></h3>
+			<p><%= link_to "Go to treehouse listing", treehouse_path(treehouse), class: "cancel-link" %></p>
+				
+		</div>
+	</div>
+
+<% end %>
+
+</div>

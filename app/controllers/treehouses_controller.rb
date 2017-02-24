@@ -94,6 +94,9 @@ class TreehousesController < ApplicationController
   	redirect_to treehouses_path
   end
 
+  def mytrees
+    @owned_trees = Treehouse.where(owner_id: current_user.id)
+  end
 
   def treehouse_params
   params.require(:treehouse).permit(:name, :description, :category, :capacity, :bed_count, :address, :zip_code, :city, :country, :tree_type, :rate, photos: [])
