@@ -17,7 +17,9 @@
 <% @rent_bookings.each do |booking| %>
 	<div class="row margin40 padded40 border-top">
 		<div class="col-xs-6">
-			<%= cl_image_tag booking.treehouse.photos.first.path, class: "img-responsive", width: 500, height: 250, crop: :fill %> 
+			<%= link_to treehouse_path(booking.treehouse) do %>
+				<%= cl_image_tag booking.treehouse.photos.first.path, class: "img-responsive", width: 500, height: 250, crop: :fill %> 
+			<% end %>
 		</div>
 		<div class="col-xs-6 booking-info">
 			<h3 class="margin0"><%= booking.treehouse.name %></h3>
@@ -44,7 +46,9 @@
 <%	treehouse.bookings.each do |booking| %>
 	<div class="row margin40 padded40 border-top">
 		<div class="col-xs-6">
+		<%= link_to treehouse_path(treehouse) do %>
 			<%= cl_image_tag booking.treehouse.photos.first.path, class: "img-responsive", width: 500, height: 250, crop: :fill %> 
+		<% end %>
 		</div>
 		<div class="col-xs-6 booking-info">
 			<h3 class="margin0"><%= booking.treehouse.name %></h3>
@@ -73,17 +77,20 @@
 	</div>
 
 <% @own_bookings.each do |treehouse| %>
-<%	treehouse.bookings.each do |booking| %>
+
 	<div class="row margin40 padded40 border-top">
 		<div class="col-xs-6">
-			<%= cl_image_tag booking.treehouse.photos.first.path, class: "img-responsive", width: 500, height: 250, crop: :fill %> 
+			<%= link_to treehouse_path(treehouse) do %>
+				<%= cl_image_tag treehouse.photos.first.path, class: "img-responsive", width: 500, height: 250, crop: :fill %> 
+			<% end %>
 		</div>
 		<div class="col-xs-6">
 			<h3 class="margin0"><%= treehouse.name %></h3>
+			<p><%= link_to "Go to treehouse listing", treehouse_path(treehouse), class: "cancel-link" %></p>
 				
 		</div>
 	</div>
-<% end %>
+
 <% end %>
 
 </div>

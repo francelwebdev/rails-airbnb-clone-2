@@ -1,0 +1,6 @@
+<div class="map_box text-center">
+	<%= link_to treehouse_path(treehouse) do %>
+	<h4 class="treehouse_name"><%= treehouse.name %>, <%= treehouse.city %></h4>
+	<%= cl_image_tag treehouse.photos.first.path, class: "img-responsive", width: 350, height: 164, crop: :fill %>
+	<% end %>
+</div>

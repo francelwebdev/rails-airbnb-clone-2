@@ -2,7 +2,7 @@
 	<form action="/search" method="get" class="form-inline">
 		<div class="form-group where-group">
 			<label for="where">Where</label>
-			<input type="text" name="treehouse[address]" id="treehouse_address_search" class="location-input"  placeholder="Destination, country, address">
+			<input type="text" name="treehouse[address]" id="treehouse_address_search" class="location-input"  value="<%= @address %>" placeholder="Destination, country, address">
 		</div>
 		<div class="form-group home-submit-button">
 			<button type="submit" class="btn-big-search">
