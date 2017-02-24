@@ -21,8 +21,8 @@
       <%= link_to "List Treehouse", new_treehouse_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <%= link_to "My Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <a class="navbar-wagon-item navbar-wagon-link" href="#">Help</a>
+<!-- 
+      <a class="navbar-wagon-item navbar-wagon-link" href="#">Help</a> -->
     
 
       <!-- Notification -->
@@ -40,14 +40,19 @@
               <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
          <!--  <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %> -->
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
+         <!--    <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
+            </li> -->
+            <li>
+              <%= link_to treehouses_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <%= link_to mytrees_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "My Treehouses") %>
               <% end %>
             </li>
             <li>
@@ -91,9 +96,45 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <% if user_signed_in? %>
+            <li>
+              <%= link_to treehouses_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+
+            <li><%= link_to "List Treehouse", new_treehouse_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+
+            <li><%= link_to "My Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+        <% else %>
+            <li>
+              <%= link_to treehouses_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+
+            <li><%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+            
+              <!-- Login text link -->
+            <li>
+              <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+
+            <li><%= link_to "List Treehouse", new_treehouse_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            </li>
+
+        <% end %>
+
+
       </ul>
     </div>
   </div>
