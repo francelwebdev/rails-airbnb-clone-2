@@ -36,7 +36,7 @@ User.create!({
   password: "yoloyolo"
 })
 Treehouse.create!({
-  name: "Peter Pan maisonette",
+  name: "Peter Pan Treehouse",
   owner_id: 1,
   category: "Shared Room",
   capacity: '4 people',
@@ -47,7 +47,12 @@ Treehouse.create!({
   bed_count:"3",
   tree_type:"Cherry Tree",
   rate: 160,
-  description:"because we love cherry"
+  description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 })
 Booking.create!({
   start_date: "30/02/2017",
@@ -59,13 +64,13 @@ Booking.create!({
 
 
 User.create!({
-  first_name: "bob",
-  last_name: "builder",
+  first_name: "Bob",
+  last_name: "Builder",
   email: "bob@builder.com",
   password: "bobbuilder"
 })
 Treehouse.create!({
-  name: "Bob builder workshop",
+  name: "Bob Builder Treehouse",
   owner_id: 2,
   category: "Shared Room",
   capacity: '2 people',
@@ -76,7 +81,12 @@ Treehouse.create!({
   bed_count:"2",
   tree_type:"Oak Tree",
   rate: 116,
-  description:"come sleep with Bob"
+  description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
   })
 Booking.create!({
@@ -89,13 +99,13 @@ Booking.create!({
 
 
 User.create!({
-  first_name: "frere ",
-  last_name: "jacques",
+  first_name: "Frere",
+  last_name: "Jacques",
   email: "frere@jacques.com",
   password: "frerejacque"
 })
 Treehouse.create!({
-  name: "frerejacque maisonette",
+  name: "Frere Jacques Treehouse",
   owner_id: 1,
   category: "Shared Room",
   capacity: '4 people',
@@ -106,7 +116,12 @@ Treehouse.create!({
   bed_count:"3",
   tree_type:"Lemon Tree",
   rate: 1607,
-  description:"because we love cheese"
+  description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 })
 Booking.create!({
   start_date: "20/06/2017",
@@ -135,7 +150,12 @@ Treehouse.create!({
   bed_count:"3",
   tree_type:"Punk Tree",
   rate: 160,
-  description:"Rock out with The Ramones"
+  description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 })
 Booking.create!({
   start_date: "30/02/2017",
@@ -148,12 +168,12 @@ Booking.create!({
 
 User.create!({
   first_name: "Laure",
-  last_name: "Voldemord",
-  email: "laure@Voldemord.com",
-  password: "laurevoldemord"
+  last_name: "Voldemort",
+  email: "laure@Voldemort.com",
+  password: "laurevoldemort"
 })
 Treehouse.create!({
-  name: "Voldemord maisonette",
+  name: "Voldemort Treehouse",
   owner_id: 5,
   category: "Shared Room",
   capacity: '1 people',
@@ -162,9 +182,14 @@ Treehouse.create!({
   city: "Mouvaux",
   country:"France",
   bed_count:"1",
-  tree_type:"DarkTree very scary",
+  tree_type:"Birch Tree",
   rate: 16088,
-  description:"Im in love with Dumbledore"
+  description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 })
 Booking.create!({
   start_date: "30/02/2017",
@@ -176,13 +201,13 @@ Booking.create!({
 
 
 User.create!({
-  first_name: "tristan",
-  last_name: "and yseult",
+  first_name: "Tristan",
+  last_name: "Yseult",
   email: "tristan@yseult.com",
   password: "tristanyseult"
 })
 Treehouse.create!({
-  name: " Into the tree",
+  name: "Into The Treehouse",
   owner_id: 6,
   category: "Shared Room",
   capacity: '2 people',
@@ -193,7 +218,12 @@ Treehouse.create!({
   bed_count:"1",
   tree_type:"Cherry Tree",
   rate:160,
-  description:"because we love cherry"
+  description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 })
 Booking.create!({
   start_date: "30/02/2017",
