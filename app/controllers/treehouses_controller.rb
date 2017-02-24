@@ -58,6 +58,7 @@ class TreehousesController < ApplicationController
 
   end
 
+
   def new
   	@treehouse = Treehouse.new
   end

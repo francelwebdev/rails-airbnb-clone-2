@@ -12,5 +12,13 @@ class Treehouse < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def banner_image
+    if photos.size > 0
+      photos.first.path
+    else
+      'https://unsplash.it/1280/500'
+    end
+  end
+
 end
 
