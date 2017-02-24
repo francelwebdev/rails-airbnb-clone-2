@@ -3,7 +3,6 @@
 		<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
 		<div class="form-formats">
-
 			<h2 class="text-center">Log in</h2>
 
 			<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -14,7 +13,7 @@
 			  </div>
 
 			  <div class="form-actions">
-			    <%= f.button :submit, "Log in" %>
+			    <%= f.button :submit, "Log in", class: "btn btn-primary full-width margin20" %>
 			  </div>
 			<% end %>
 
