@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   	controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } 
 
 
-
+  get '/mytrees', to: "treehouses#mytrees"
   get '/search', to: "treehouses#search"
   resources :treehouses, only: [:index, :show, :new, :create, :edit, :update, :destroy], :path => "/"
 
