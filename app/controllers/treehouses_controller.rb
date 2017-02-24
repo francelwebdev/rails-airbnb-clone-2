@@ -54,7 +54,6 @@ class TreehousesController < ApplicationController
   end
 
   def create
-    byebug
   	@treehouse = Treehouse.new(treehouse_params)
   	@treehouse.owner = current_user
   	if @treehouse.save
