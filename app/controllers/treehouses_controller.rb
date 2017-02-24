@@ -39,7 +39,7 @@ class TreehousesController < ApplicationController
       marker.infowindow render_to_string(partial: "/treehouses/map_box", locals: { treehouse: treehouse })
 
 
-      
+
 
        # {
        #        "lat": <%= @treehouse.latitude %>,
@@ -65,7 +65,7 @@ class TreehousesController < ApplicationController
   def create
   	@treehouse = Treehouse.new(treehouse_params)
   	@treehouse.owner = current_user
-  	if @treehouse.save 
+  	if @treehouse.save
   		redirect_to treehouse_path(@treehouse)
   	else
   		render :new

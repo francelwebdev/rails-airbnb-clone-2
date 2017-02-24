@@ -6,7 +6,7 @@ class Treehouse < ApplicationRecord
   has_many :spaces
   has_attachments :photos, maximum: 2
 
-	validates :name, :category, :capacity, :bed_count, :tree_type, :description, :rate, :address, :photos, presence: true
+	validates :name, :category, :capacity, :bed_count, :tree_type, :description, :rate, :address, presence: true
   # validates :name, :category, :capacity, :bed_count, :location, :tree_type, :description, :photos, presence: true
   # validates :name, uniqueness: true
   geocoded_by :address
