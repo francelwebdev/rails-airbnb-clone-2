@@ -1,4 +1,4 @@
-class BookingsController < ApplicationController
+  class BookingsController < ApplicationController
   def index
     @rent_bookings = Booking.where(renter_id: current_user.id)
     @own_bookings = Treehouse.where(owner_id: current_user.id)
@@ -15,17 +15,17 @@ class BookingsController < ApplicationController
   def confirm
     @booking = Booking.new(booking_params)
     @booking.renter = current_user
-    
+
   end
 
   def create
-    @booking = Booking.new(booking_params)    
+    @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to bookings_path
     else
       render :new
     end
-  
+
   end
 
   def edit

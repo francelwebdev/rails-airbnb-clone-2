@@ -17,7 +17,7 @@ class TreehousesController < ApplicationController
   def search
     if params["treehouse"]["address"]
       @treehouses = Treehouse.near(params["treehouse"]["address"], 50)
-  
+
     else
       @treehouses = Treehouse.all
     end
@@ -30,7 +30,7 @@ class TreehousesController < ApplicationController
       marker.lng treehouse.longitude
       marker.infowindow treehouse.name
 
-      
+
 
        # {
        #        "lat": <%= @treehouse.latitude %>,
@@ -54,9 +54,10 @@ class TreehousesController < ApplicationController
   end
 
   def create
+    byebug
   	@treehouse = Treehouse.new(treehouse_params)
   	@treehouse.owner = current_user
-  	if @treehouse.save 
+  	if @treehouse.save
   		redirect_to treehouse_path(@treehouse)
   	else
   		render :new
