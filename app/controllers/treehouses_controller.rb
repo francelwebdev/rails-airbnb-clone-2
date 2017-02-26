@@ -1,6 +1,13 @@
 class TreehousesController < ApplicationController
 
   layout "search", only: [ :search ]
+  # skip_before_action :authenticate_user!, only: :home
+
+  # skip_before_filter :verify_authenticity_token 
+  # skip_before_filter :authenticate_user!, only: [ :home ], raise: false
+
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
+
 
 
   def index
